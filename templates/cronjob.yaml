@@ -1,0 +1,19 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cron-job-name
+  labels:
+    label-key: label-value
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: pod-name
+          labels:
+            app: pod-la
+        spec:
+          containers:
+            - name: container-name
+              image: image-name
