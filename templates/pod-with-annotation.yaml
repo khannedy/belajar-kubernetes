@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-name
+  labels:
+    label-key1: label-value1
+  annotations:
+    annotation-key1: annotation-value
+    annotation-key2: veri long annotation value, bla bla bla bla bla bla
+spec:
+  containers:
+    - name: container-name
+      image: image-name
+      ports:
+        - containerPort: 80
