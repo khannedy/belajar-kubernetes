@@ -11,6 +11,12 @@ spec:
   selector:
     matchLabels:
       label-key1: label-value1
+    matchExpressions:
+      - key: label-key
+        operator: In
+        values:
+          - label-value1
+          - label-value2
   template:
     metadata:
       name: pod-name
