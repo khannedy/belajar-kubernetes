@@ -12,7 +12,7 @@ spec:
     label-key1: label-value1
   template:
     metadata:
-      name: nama-replication-controller
+      name: nama-pod
       labels:
         label-key1: label-value1
     spec:
