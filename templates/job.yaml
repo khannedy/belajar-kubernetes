@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-name
+  labels:
+    label-key1: label-value1
+  annotations:
+    annotation-key1: annotation-value1
+spec:
+  template:
+    metadata:
+      name: pod-name
+      labels:
+        label-key1: label-value1
+    spec:
+      containers:
+        - name: container-name
+          image: image-name
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 0
+            periodSeconds: 10
+            failureThreshold: 3
+            successThreshold: 1
+            timeoutSeconds: 1
