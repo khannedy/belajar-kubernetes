@@ -1,0 +1,28 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cron-job-name
+  labels:
+    label-key: label-value
+  annotations:
+    annotation-key1: annotation-value1
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      selector:
+        matchLabels:
+          abel-key1: label-value1
+      template:
+        metadata:
+          name: pod-name
+          labels:
+            app: pod-la
+        spec:
+          nodeSelector:
+            hardisk: ssd
+          containers:
+            - name: container-name
+              image: image-name
+              ports:
+                - containerPort: 80

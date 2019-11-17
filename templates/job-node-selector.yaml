@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-name
+  labels:
+    label-key1: label-value1
+  annotations:
+    annotation-key1: annotation-value1
+spec:
+  completions: 5
+  parallelism: 2
+  selector:
+    matchLabels:
+      abel-key1: label-value1
+  template:
+    metadata:
+      name: pod-name
+      labels:
+        label-key1: label-value1
+    spec:
+      nodeSelector:
+        hardisk: ssd
+      containers:
+        - name: container-name
+          image: image-name
+          ports:
+            - containerPort: 80

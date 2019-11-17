@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-name
+spec:
+  nodeSelector:
+    gpu: "true"
+  containers:
+    - name: container-name
+      image: image-name
+      ports:
+        - containerPort: 80
