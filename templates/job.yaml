@@ -7,6 +7,9 @@ metadata:
   annotations:
     annotation-key1: annotation-value1
 spec:
+  selector:
+    matchLabels:
+      abel-key1: label-value1
   template:
     metadata:
       name: pod-name
@@ -18,12 +21,3 @@ spec:
           image: image-name
           ports:
             - containerPort: 80
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 80
-            initialDelaySeconds: 0
-            periodSeconds: 10
-            failureThreshold: 3
-            successThreshold: 1
-            timeoutSeconds: 1
