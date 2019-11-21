@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-name
+  labels:
+    label-key1: label-value1
+spec:
+  rules:
+    - host: sub.domain.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: service-name
+              servicePort: 80
