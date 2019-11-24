@@ -1,0 +1,39 @@
+```puml
+@startuml
+
+node "Client" as client
+node "Load Balancer 1" as lb1
+node "Load Balancer 2" as lb2
+
+node "Kubernetes Cluster" {
+    component "Service 1" as service1
+    component "Service 2" as service2
+    node "Node 1" as node1 {
+        component "Pod 1 - 1" as pod11
+        component "Pod 2 - 1" as pod21           
+        component "Pod 2 - 3" as pod23
+    }
+    node "Node 2" as node2 {
+        component "Pod 1 - 2" as pod12
+        component "Pod 2 - 2" as pod22
+    }
+}
+
+client -up-> lb1
+client -up-> lb2
+lb1 -up-> node1
+lb1 -up-> node2
+lb2 -up-> node1
+lb2 -up-> node2
+node1 --> service1
+node1 --> service2
+node2 --> service1
+node2 --> service2
+service1 --> pod11
+service1 --> pod12
+service2 --> pod21
+service2 --> pod22
+service2 --> pod23
+
+@enduml
+```
