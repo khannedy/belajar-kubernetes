@@ -1,0 +1,38 @@
+```puml
+@startuml
+
+node "Kubernetes Master" {
+    component "kube-controller-manager" as kubemanager
+    component "cloud-controller-manager" as cloudmanager
+    component "kube-apiserver" as api
+    database "etcd" as etcd
+    component "kube-scheduler" as scheduler
+}
+
+node "Kubernetes Nodes / Workers" {
+    node "Node 1" {
+        component "kubelet" as kubelet1
+        component "kube-proxy" as kubeproxy1
+        component "container manager" as containermanager1
+    }
+    node "Node ..." {
+        component "kubelet" as kubelet2
+        component "kube-proxy" as kubeproxy2
+        component "container manager" as containermanager2
+    }
+}
+
+cloud "Cloud Provider" as cloud
+
+etcd <--> api
+scheduler <--> api
+cloudmanager <--> api
+kubemanager <--> api
+cloudmanager <-up-> cloud
+kubelet1 <-up-> api
+kubeproxy1 <-up-> api
+kubelet2 <-up-> api
+kubeproxy2 <-up-> api
+
+@enduml
+```
