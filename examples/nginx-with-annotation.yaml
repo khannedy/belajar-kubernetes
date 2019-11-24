@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-with-annotation
+  labels:
+    team: product
+    version: 1.0.1
+    environment: development
+  annotations:
+    description: Ini adalah aplikasi yang dibuat oleh tim product
+    apapun: Apapun itu....
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
