@@ -1,0 +1,26 @@
+```puml
+@startuml
+
+node "Node 1" {
+    component "Pod 1" as pod11
+    component "Daemon Pod" as pod1
+}
+
+node "Node 2" {
+    component "Pod 1" as pod21
+    component "Daemon Pod" as pod2
+}
+
+node "Node 3" {
+    component "Pod 2" as pod32
+    component "Daemon Pod" as pod3
+}
+
+component "Daemon Set" as daemon
+
+daemon -up-> pod1
+daemon -up-> pod2
+daemon -up-> pod3
+
+@enduml
+```
