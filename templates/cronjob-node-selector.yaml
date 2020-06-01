@@ -19,6 +19,7 @@ spec:
           labels:
             app: pod-la
         spec:
+          restartPolicy: Never
           nodeSelector:
             hardisk: ssd
           containers:

@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: nodejs-cronjob
+  labels:
+    name: nodejs-cronjob
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: nodejs-cronjob
+          labels:
+            name: nodejs-cronjob
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: nodejs-cronjob
+              image: khannedy/nodejs-job

@@ -18,6 +18,7 @@ spec:
       labels:
         label-key1: label-value1
     spec:
+      restartPolicy: Never
       containers:
         - name: container-name
           image: image-name
