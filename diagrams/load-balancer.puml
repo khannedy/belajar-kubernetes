@@ -1,7 +1,7 @@
-```puml
 @startuml
 
 node "Client" as client
+node "Load Balancer 1" as lb1
 
 node "Kubernetes Cluster" {
     component "Service 1" as service1
@@ -10,17 +10,15 @@ node "Kubernetes Cluster" {
     }
     node "Node 2" as node2 {
         component "Pod 1 - 2" as pod12
-        component "Pod 1 - 3" as pod13
     }
 }
 
-client -up-> node1
-client -up-> node2
+client -right-> lb1
+lb1 -up-> node1
+lb1 -up-> node2
 node1 --> service1
 node2 --> service1
 service1 --> pod11
 service1 --> pod12
-service1 --> pod13
 
 @enduml
-```

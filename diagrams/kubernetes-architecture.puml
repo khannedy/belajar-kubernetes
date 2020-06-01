@@ -1,4 +1,3 @@
-```puml
 @startuml
 
 node "Kubernetes Master" {
@@ -35,4 +34,3 @@ kubelet2 <-up-> api
 kubeproxy2 <-up-> api
 
 @enduml
-```

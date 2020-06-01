@@ -1,4 +1,3 @@
-```puml
 @startuml
 
 node "Client" as client
@@ -10,7 +9,7 @@ node "Kubernetes Cluster" {
     component "Service 2" as service2
     node "Node 1" as node1 {
         component "Pod 1 - 1" as pod11
-        component "Pod 2 - 1" as pod21           
+        component "Pod 2 - 1" as pod21
         component "Pod 2 - 3" as pod23
     }
     node "Node 2" as node2 {
@@ -36,4 +35,3 @@ service2 --> pod22
 service2 --> pod23
 
 @enduml
-```

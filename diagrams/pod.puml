@@ -1,4 +1,3 @@
-```puml
 @startuml
 node "Kubernetes Cluster" {
 
@@ -21,4 +20,3 @@ node "Kubernetes Cluster" {
 
 }
 @enduml
-```
