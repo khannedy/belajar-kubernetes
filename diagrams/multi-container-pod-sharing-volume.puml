@@ -1,0 +1,24 @@
+@startuml
+
+node "Kubernetes Cluster" {
+
+    node "Service" as service
+
+    node "Pod"  as pod{
+
+        node "Container 1" as container1
+        node "Container 2" as container2
+
+        file "Volume" as volume
+
+    }
+
+}
+
+service --> pod : NodePort
+pod --> container1
+pod --> container2
+container1 --> volume
+container2 <-- volume
+
+@enduml
