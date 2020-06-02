@@ -1,0 +1,26 @@
+@startuml
+
+file "application.yaml" as yaml
+
+node "Kubernetes Cluster" {
+    package "Namespace Production" {
+        node "Pod" as pod1{
+            file "Environment Variable" as env1
+        }
+        file "ConfigMap" as config1
+    }
+
+    package "Namespace Development" {
+        node "Pod" as pod2{
+            file "Environment Variable" as env2
+        }
+        file "ConfigMap" as config2
+    }
+}
+
+yaml --> pod1
+yaml --> pod2
+config1 --> env1
+config2 --> env2
+
+@enduml
