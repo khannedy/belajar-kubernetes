@@ -5,7 +5,7 @@ docker build -t khannedy/nodejs-writer .
 docker push khannedy/nodejs-writer
 
 # Create container
-docker container create --name nodejs-writer --env HTML_LOCATION=. khannedy/nodejs-writer
+docker container create --name nodejs-writer khannedy/nodejs-writer
 
 # Start container
 docker container start nodejs-writer
