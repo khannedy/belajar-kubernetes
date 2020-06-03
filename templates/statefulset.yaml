@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: name-stateful-service
+spec:
+  clusterIP: None
+  selector:
+    name: name-stateful
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: name-stateful
+  labels:
+    name: name-stateful
+spec:
+  serviceName: name-stateful-service
+  replicas: 3
+  selector:
+    matchLabels:
+      name: name-stateful
+  volumeClaimTemplates:
+    - metadata:
+        name: name-stateful-volume-claim
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        volumeMode: Filesystem
+        resources:
+          requests:
+            storage: 1Gi
+  template:
+    metadata:
+      name: name-stateful
+      labels:
+        name: name-stateful
+    spec:
+      containers:
+        - name: name-stateful
+          image: image/name-stateful
+          volumeMounts:
+            - mountPath: /app/data
+              name: name-stateful-volume-claim

@@ -1,0 +1,27 @@
+@startuml
+
+cloud "Cloud" {
+
+    file "Cloud Storage" as cloudstorage
+
+}
+
+node "Kubernetes Cluster" {
+
+    file "Persistent Storage 10GB" as persistent
+
+    node "Pod A" as pod1
+    node "Pod A" as pod2
+    node "Pod A" as pod3
+
+    file "Claim 2GB" as file3
+
+}
+
+persistent -right-> cloudstorage
+file3 --> persistent
+pod1 --> file3
+pod2 --> file3
+pod3 --> file3
+
+@enduml
