@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-web
+  labels:
+    name: nodejs-web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: nodejs-web
+  template:
+    metadata:
+      name: nodejs-web
+      labels:
+        name: nodejs-web
+    spec:
+      containers:
+        - name: nodejs-web
+          image: khannedy/nodejs-web:3
+          ports:
+            - containerPort: 3000
