@@ -9,7 +9,8 @@ const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify({
         application: process.env.APPLICATION,
-        version: process.env.VERSION
+        version: process.env.VERSION,
+        env: process.env
     }));
 });
 

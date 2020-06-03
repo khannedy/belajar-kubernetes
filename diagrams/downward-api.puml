@@ -1,0 +1,14 @@
+@startuml
+
+node "Kubernetes Cluster" {
+    package "Node" {
+        node "Pod" as pod1{
+            file "Environment Variable" as env1
+        }
+        file "Downward API" as config1
+    }
+}
+
+config1 --> env1
+
+@enduml
