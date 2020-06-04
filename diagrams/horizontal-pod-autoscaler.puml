@@ -1,0 +1,27 @@
+@startuml
+
+node "Kubernetes Cluster" {
+
+node "Node 1" {
+    component "Pod 1" as pod1
+    component "..." as pod3
+}
+
+node "Node 2" {
+    component "Pod 1" as pod2
+    component "..." as pod4
+}
+
+component "Deployment / ReplicaSet" as deployment
+component "Metrics Server" as metrics
+component "Horizontal Pod Autoscaler" as horizontal
+
+}
+
+pod1 --> metrics 
+pod2 --> metrics
+metrics -up-> horizontal
+horizontal -up-> deployment
+deployment --> pod1
+deployment --> pod2
+@enduml
