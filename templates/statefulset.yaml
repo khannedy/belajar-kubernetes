@@ -5,6 +5,7 @@ metadata:
   labels:
     name: name-stateful
 spec:
+  # https://github.com/kubernetes/kubernetes/issues/69608
   serviceName: name-stateful-service
   replicas: 3
   selector:

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nodejs-stateful-volume-1
+  name: nodejs-stateful-volume
 spec:
   accessModes:
     - ReadWriteOnce
@@ -19,6 +19,7 @@ metadata:
   labels:
     name: nodejs-stateful
 spec:
+  # https://github.com/kubernetes/kubernetes/issues/69608
   serviceName: nodejs-stateful-service
   replicas: 3
   selector:
