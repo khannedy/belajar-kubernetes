@@ -18,7 +18,7 @@ node "Kubernetes Cluster" {
     }
 }
 
-yaml --> pod1
+yaml --> pod12
 yaml --> pod2
 config1 --> env1
 config2 --> env2
