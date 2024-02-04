@@ -1,4 +1,6 @@
-apiVersion: networking.k8s.io/v1beta1
+# deprecated :
+# apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-name
@@ -10,6 +12,9 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: service-name
-              servicePort: 80
+              service:
+                name: nginx-service
+                port:
+                  number: 80
